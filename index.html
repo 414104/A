@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>ברכות מדוד רוט</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -19,6 +19,8 @@
             border-right: 3px solid #0f0;
             padding-right: 5px;
             animation: blink 0.8s step-end infinite;
+            text-align: right;
+            direction: rtl;
         }
         @keyframes blink {
             50% { border-color: transparent; }
@@ -30,8 +32,7 @@
     <div id="text"></div>
 
     <script>
-        const text = "
-            זאב אדלר היקר,
+        const text = `זאב אדלר היקר,
 
 מאחלים לך שפע של אושר, הצלחה ובריאות!
 שכל יום יביא איתו הזדמנויות חדשות, חוויות מרגשות, ושמחה שתמלא את ליבך.
@@ -41,12 +42,13 @@
 
 בהערכה ואיחולים חמים,
 🌟🎉🎊
-            ...";
-        let index = 0;
+...`;
 
+        let index = 0;
         function typeText() {
             if (index < text.length) {
-                document.getElementById("text").innerHTML += text.charAt(index) === " " ? "&nbsp;" : text.charAt(index);
+                let char = text.charAt(index);
+                document.getElementById("text").innerHTML += char === "\n" ? "<br>" : char;
                 index++;
                 setTimeout(typeText, Math.random() * 200 + 50);
             }
