@@ -35,7 +35,7 @@
 
         function typeText() {
             if (index < text.length) {
-                document.getElementById("text").innerText += text.charAt(index);
+                document.getElementById("text").innerHTML += text.charAt(index) === " " ? "&nbsp;" : text.charAt(index);
                 index++;
                 setTimeout(typeText, Math.random() * 200 + 50);
             }
